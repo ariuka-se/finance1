@@ -1,4 +1,4 @@
-// Ð”ÑÐ»Ð³ÑÑ†Ñ‚ÑÐ¹    Ð°Ð¶Ð¸Ð»Ð»Ð°Ñ… ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€
+// Ð”ÑÐ»Ð³ÑÑ†Ñ‚ÑÐ¹ Ð°Ð¶Ð¸Ð»Ð»Ð°Ñ… ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€
 var uiController = (function() {
   var DOMstrings = {
     inputType: ".add__type",
@@ -207,15 +207,20 @@ var appController = (function(uiController, financeController) {
       uiController.addListItem(item, input.type);
       uiController.clearFields();
 
-      // 4. Ð¢Ó©ÑÐ²Ð¸Ð¹Ð³ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð»Ð½Ð¾
-      financeController.tusuvTootsooloh();
-
-      // 5. Ð­Ñ†ÑÐ¸Ð¹Ð½ Ò¯Ð»Ð´ÑÐ³Ð´ÑÐ»,
-      var tusuv = financeController.tusviigAvah();
-
-      // 6. Ð¢Ó©ÑÐ²Ð¸Ð¹Ð½ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð³ Ð´ÑÐ»Ð³ÑÑ†ÑÐ½Ð´ Ð³Ð°Ñ€Ð³Ð°Ð½Ð°.
-      uiController.tusviigUzuuleh(tusuv);
+      // Ð¢Ó©ÑÐ²Ð¸Ð¹Ð³ ÑˆÐ¸Ð½ÑÑÑ€ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð»Ð¾Ð¾Ð´ Ð´ÑÐ»Ð³ÑÑ†ÑÐ½Ð´ Ò¯Ð·Ò¯Ò¯Ð»Ð½Ñ.
+      updateTusuv();
     }
+  };
+
+  var updateTusuv = function() {
+    // 4. Ð¢Ó©ÑÐ²Ð¸Ð¹Ð³ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð»Ð½Ð¾
+    financeController.tusuvTootsooloh();
+
+    // 5. Ð­Ñ†ÑÐ¸Ð¹Ð½ Ò¯Ð»Ð´ÑÐ³Ð´ÑÐ»,
+    var tusuv = financeController.tusviigAvah();
+
+    // 6. Ð¢Ó©ÑÐ²Ð¸Ð¹Ð½ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð³ Ð´ÑÐ»Ð³ÑÑ†ÑÐ½Ð´ Ð³Ð°Ñ€Ð³Ð°Ð½Ð°.
+    uiController.tusviigUzuuleh(tusuv);
   };
 
   var setupEventListeners = function() {
@@ -251,6 +256,8 @@ var appController = (function(uiController, financeController) {
           uiController.deleteListItem(id);
 
           // 3. Ò®Ð»Ð´ÑÐ³Ð´ÑÐ» Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð³ ÑˆÐ¸Ð½ÑÑ‡Ð¸Ð»Ð¶ Ñ…Ð°Ñ€ÑƒÑƒÐ»Ð½Ð°.
+          // Ð¢Ó©ÑÐ²Ð¸Ð¹Ð³ ÑˆÐ¸Ð½ÑÑÑ€ Ñ‚Ð¾Ð¾Ñ†Ð¾Ð¾Ð»Ð¾Ð¾Ð´ Ð´ÑÐ»Ð³ÑÑ†ÑÐ½Ð´ Ò¯Ð·Ò¯Ò¯Ð»Ð½Ñ.
+          updateTusuv();
         }
       });
   };
